@@ -9,7 +9,7 @@ export default function FloatingWhatsApp({ onOpenEnquiry }) {
   return (
     <aside 
       aria-label="Quick contact widget"
-      className="fixed bottom-4 right-3 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end gap-2 pb-safe select-none"
+      className="fixed bottom-4 right-3.5 sm:bottom-6 sm:right-6 z-30 flex flex-col items-end gap-2 pb-safe select-none pointer-events-none"
     >
       
       {/* Compact Interactive Quick Panel */}
@@ -18,10 +18,10 @@ export default function FloatingWhatsApp({ onOpenEnquiry }) {
           role="dialog"
           aria-modal="true"
           aria-label="Quick WhatsApp Options"
-          className="bg-white/95 dark:bg-slate-900/98 border border-slate-200 dark:border-slate-700/90 rounded-2xl p-3.5 sm:p-4 shadow-2xl w-[260px] sm:w-[280px] max-w-[calc(100vw-2rem)] animate-in slide-in-from-bottom-2 duration-200 backdrop-blur-xl transition-colors duration-300"
+          className="bg-white/98 dark:bg-slate-900/98 border border-slate-200 dark:border-slate-700/90 rounded-2xl p-3 sm:p-4 shadow-2xl w-[250px] sm:w-[280px] max-w-[calc(100vw-2.5rem)] animate-in slide-in-from-bottom-2 duration-200 backdrop-blur-xl transition-colors duration-300 pointer-events-auto"
         >
           {/* Header */}
-          <div className="flex items-center justify-between pb-2.5 mb-2.5 border-b border-slate-100 dark:border-slate-800">
+          <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-100 dark:border-slate-800">
             <div className="flex items-center gap-2">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -38,11 +38,11 @@ export default function FloatingWhatsApp({ onOpenEnquiry }) {
             </button>
           </div>
 
-          <p className="text-[11px] text-slate-600 dark:text-slate-300 mb-3 leading-relaxed">
+          <p className="text-[11px] text-slate-600 dark:text-slate-300 mb-2.5 leading-relaxed">
             Need urgent laptop repair, CCTV quotation, or toner refill in Kim / Surat?
           </p>
 
-          <div className="space-y-2">
+          <div className="space-y-1.5 sm:space-y-2">
             {/* Action 1: Fill Ticket Form */}
             <button
               onClick={() => {
@@ -87,24 +87,24 @@ export default function FloatingWhatsApp({ onOpenEnquiry }) {
             </a>
           </div>
 
-          <div className="mt-2.5 pt-2 border-t border-slate-100 dark:border-slate-800/80 text-[10px] text-slate-500 dark:text-slate-400 text-center">
+          <div className="mt-2 pt-1.5 border-t border-slate-100 dark:border-slate-800/80 text-[10px] text-slate-500 dark:text-slate-400 text-center">
             NH-8 Kim Char Rasta • Mon-Sat 9:30-8:30
           </div>
         </div>
       )}
 
-      {/* Main Single Floating Action Button */}
+      {/* Main Single Floating Action Button - Compact on mobile */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="group relative flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold p-3 sm:px-4 sm:py-3 rounded-full shadow-xl shadow-emerald-500/30 border border-emerald-400/30 transition-all transform hover:scale-105 active:scale-95"
+        className="group relative flex items-center justify-center gap-1.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold w-11 h-11 sm:w-auto sm:h-auto p-2.5 sm:px-4 sm:py-2.5 rounded-full shadow-lg shadow-emerald-500/25 border border-emerald-400/30 transition-all transform hover:scale-105 active:scale-95 pointer-events-auto"
         aria-label="Open WhatsApp Support Menu"
       >
-        <span className="relative flex h-2.5 w-2.5">
+        <span className="relative flex h-2 w-2">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white"></span>
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
         </span>
 
-        <MessageSquare className="w-5 h-5 fill-white text-emerald-600" />
+        <MessageSquare className="w-4 h-4 sm:w-4 sm:h-4 fill-white text-emerald-600 flex-shrink-0" />
 
         <span className="hidden sm:inline-block text-xs font-bold tracking-wide pr-0.5">
           WhatsApp

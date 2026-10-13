@@ -13,7 +13,7 @@ export default function HeroVideoBackground() {
     <div className="absolute inset-0 overflow-hidden pointer-events-none select-none z-0">
       {/* Cinematic Static & Animated Gradient Layer */}
       <div 
-        className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 scale-105"
+        className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 scale-105 filter brightness-[0.3] dark:brightness-[0.2] contrast-[1.05]"
         style={{
           backgroundImage: `url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=2000&q=80')`
         }}
@@ -27,21 +27,23 @@ export default function HeroVideoBackground() {
           muted
           playsInline
           onError={() => setVideoError(true)}
-          className="absolute inset-0 w-full h-full object-cover opacity-35 dark:opacity-40 transition-opacity duration-700"
+          className="absolute inset-0 w-full h-full object-cover opacity-25 dark:opacity-30 filter brightness-[0.35] dark:brightness-[0.25] transition-opacity duration-700"
         >
           {/* High-quality tech/hardware loop */}
           <source src="/videos/hero-tech.mp4" type="video/mp4" />
         </video>
       )}
 
-      {/* Cinematic Overlay - Dark & Light mode adapted */}
-      {/* In Dark mode: Deep rich blue-black gradient for ultimate contrast */}
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/60 dark:block hidden" />
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/70 dark:block hidden" />
+      {/* Foundational Base Scrim to prevent washout */}
+      <div className="absolute inset-0 bg-slate-900/40 dark:bg-slate-950/60 backdrop-blur-[0.5px]" />
 
-      {/* In Light mode: Clean high-contrast veil with soft frosted backdrop */}
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-50/95 via-slate-50/85 to-slate-50/60 dark:hidden block" />
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-transparent to-slate-50/70 dark:hidden block" />
+      {/* Cinematic Overlay - Dark Mode: Deep rich blue-black gradient for ultimate contrast */}
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-950/98 via-slate-950/92 to-slate-950/80 dark:block hidden" />
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/60 to-slate-950 dark:block hidden" />
+
+      {/* Cinematic Overlay - Light Mode: Clean high-contrast veil with soft frosted backdrop */}
+      <div className="absolute inset-0 bg-gradient-to-r from-white/96 via-white/90 to-white/82 dark:hidden block" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/92 via-white/80 to-slate-50 dark:hidden block" />
 
       {/* Ambient Cyber / Electric Blue Spotlights */}
       <div className="absolute -top-24 left-1/4 w-[500px] h-[500px] bg-brand-500/10 dark:bg-brand-500/15 rounded-full blur-[140px] pointer-events-none" />

@@ -67,27 +67,27 @@ export default function Hero({ onOpenEnquiry }) {
     <section 
       id="hero" 
       ref={heroRef}
-      className="relative min-h-[85vh] lg:min-h-[92vh] flex items-center pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-20 overflow-hidden w-full max-w-full"
+      className="relative min-h-0 lg:min-h-[90vh] flex items-center pt-24 sm:pt-32 lg:pt-36 pb-12 sm:pb-16 lg:pb-20 overflow-hidden w-full max-w-full"
     >
       {/* Cinematic Background Video & Fallback Layer */}
       <HeroVideoBackground />
 
       <div className="relative z-10 max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full min-w-0">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 items-center">
           
           {/* Left Column: Headline, Copy & Actions */}
-          <div className="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-left min-w-0">
+          <div className="lg:col-span-7 space-y-3.5 sm:space-y-5 lg:space-y-6 text-center lg:text-left min-w-0">
             
             {/* Small Eyebrow Label */}
-            <div className="hero-eyebrow inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 dark:bg-slate-900/90 text-brand-400 dark:text-brand-300 border border-slate-700/60 dark:border-brand-500/30 text-xs font-bold tracking-wider uppercase shadow-sm">
+            <div className="hero-eyebrow inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-slate-900/80 dark:bg-slate-900/90 text-brand-400 dark:text-brand-300 border border-slate-700/60 dark:border-brand-500/30 text-[10px] sm:text-xs font-bold tracking-wider uppercase shadow-sm">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
               <span>IT HARDWARE • CCTV • TECHNICAL SUPPORT</span>
             </div>
 
-            {/* Large, Elegant Headline */}
+            {/* Large, Elegant Headline - naturally fitted for mobile */}
             <h1 
-              className="hero-main-title font-black tracking-tight text-slate-900 dark:text-white leading-[1.12]"
-              style={{ fontSize: 'clamp(2.1rem, 4.8vw + 0.5rem, 4.25rem)' }}
+              className="hero-main-title font-black tracking-tight text-slate-900 dark:text-white leading-[1.15] sm:leading-[1.12]"
+              style={{ fontSize: 'clamp(1.75rem, 3.8vw + 0.6rem, 4.25rem)' }}
             >
               Technology That Keeps{' '}
               <span className="bg-gradient-to-r from-brand-600 via-sky-500 to-accent-500 dark:from-brand-400 dark:via-sky-300 dark:to-accent-400 bg-clip-text text-transparent inline-block">
@@ -97,23 +97,23 @@ export default function Hero({ onOpenEnquiry }) {
             </h1>
 
             {/* Supporting Paragraph */}
-            <p className="hero-subtext text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+            <p className="hero-subtext text-xs sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
               Explore enterprise IT hardware, chip-level computer diagnostics, 4K CCTV surveillance, and corporate maintenance contracts from <strong className="text-slate-900 dark:text-white">BHUMI TECHNOCARE</strong>.
             </p>
 
             {/* Two Primary Actions */}
-            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3.5 w-full sm:w-auto">
+            <div className="pt-1 sm:pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-2.5 sm:gap-3.5 w-full sm:w-auto">
               <button
                 onClick={() => onOpenEnquiry()}
-                className="hero-action-btn inline-flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-sm sm:text-base px-7 py-4 rounded-xl shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+                className="hero-action-btn inline-flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-xs sm:text-base px-5 sm:px-7 py-3 sm:py-4 rounded-xl shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
               >
-                <MessageSquare className="w-5 h-5 flex-shrink-0" />
+                <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
                 <span>Get a Service Quote</span>
               </button>
 
               <a
                 href="#services"
-                className="hero-action-btn inline-flex items-center justify-center gap-2 bg-white/90 hover:bg-white dark:bg-slate-900/90 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white font-semibold text-sm sm:text-base px-6 py-4 rounded-xl border border-slate-200 dark:border-slate-800 transition-all shadow-sm hover:border-slate-300 dark:hover:border-slate-700"
+                className="hero-action-btn inline-flex items-center justify-center gap-2 bg-white/90 hover:bg-white dark:bg-slate-900/90 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white font-semibold text-xs sm:text-base px-5 sm:px-6 py-3 sm:py-4 rounded-xl border border-slate-200 dark:border-slate-800 transition-all shadow-sm hover:border-slate-300 dark:hover:border-slate-700"
               >
                 <span>Explore Our Services</span>
                 <ArrowRight className="w-4 h-4 text-brand-500 dark:text-brand-400 flex-shrink-0" />
@@ -121,14 +121,14 @@ export default function Hero({ onOpenEnquiry }) {
             </div>
 
             {/* Trust Indicator with Verified Information */}
-            <div className="hero-trust-tag pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+            <div className="hero-trust-tag pt-1 sm:pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-4 text-[11px] sm:text-xs lg:text-sm text-slate-500 dark:text-slate-400">
               <div className="flex items-center gap-1.5 font-medium">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-500 flex-shrink-0" />
                 <span>Kim Char Rasta Hub • Since 2012</span>
               </div>
               <span className="hidden sm:inline">•</span>
               <div className="flex items-center gap-1.5 font-medium">
-                <ShieldCheck className="w-4 h-4 text-brand-500 flex-shrink-0" />
+                <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-500 flex-shrink-0" />
                 <span>90-Day Written Repair Warranty</span>
               </div>
             </div>
@@ -137,10 +137,10 @@ export default function Hero({ onOpenEnquiry }) {
 
           {/* Right Column: Clean, Cinematic Technology Workspace Composition */}
           <div className="hero-visual-container lg:col-span-5 w-full min-w-0">
-            <div className="relative rounded-3xl overflow-hidden p-2 sm:p-3 bg-gradient-to-br from-slate-200/50 via-slate-100/30 to-slate-200/50 dark:from-slate-800/60 dark:via-slate-900/40 dark:to-slate-800/60 border border-slate-200 dark:border-slate-700/80 shadow-2xl backdrop-blur-xl">
+            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden p-2 sm:p-3 bg-gradient-to-br from-slate-200/50 via-slate-100/30 to-slate-200/50 dark:from-slate-800/60 dark:via-slate-900/40 dark:to-slate-800/60 border border-slate-200 dark:border-slate-700/80 shadow-xl sm:shadow-2xl backdrop-blur-xl">
               
               {/* Inner Showcase Card */}
-              <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-900 shadow-inner group">
+              <div className="relative rounded-xl sm:rounded-2xl overflow-hidden aspect-[16/10] sm:aspect-[4/3] bg-slate-900 shadow-inner group">
                 <img
                   src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=1200&q=80"
                   alt="Bhumi Technocare Professional IT Laboratory"
@@ -151,25 +151,25 @@ export default function Hero({ onOpenEnquiry }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent" />
 
                 {/* Floating Micro-Badge Top Left */}
-                <div className="absolute top-4 left-4 bg-slate-950/85 backdrop-blur-md border border-slate-700/80 rounded-xl px-3 py-1.5 text-xs text-white flex items-center gap-2 shadow-lg">
-                  <Cpu className="w-3.5 h-3.5 text-brand-400" />
-                  <span className="font-semibold text-[11px]">Precision Chip-Level Lab</span>
+                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-slate-950/85 backdrop-blur-md border border-slate-700/80 rounded-xl px-2.5 py-1 sm:px-3 sm:py-1.5 text-xs text-white flex items-center gap-1.5 sm:gap-2 shadow-lg">
+                  <Cpu className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-400" />
+                  <span className="font-semibold text-[10px] sm:text-[11px]">Precision Chip-Level Lab</span>
                 </div>
 
                 {/* Bottom Overlay Info Banner */}
-                <div className="absolute bottom-4 left-4 right-4 bg-slate-950/85 backdrop-blur-md border border-slate-700/80 rounded-2xl p-3.5 text-white flex items-center justify-between gap-3 shadow-xl">
+                <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 bg-slate-950/90 backdrop-blur-md border border-slate-700/80 rounded-xl sm:rounded-2xl p-2.5 sm:p-3.5 text-white flex items-center justify-between gap-2.5 shadow-xl">
                   <div className="min-w-0">
-                    <div className="text-xs font-bold text-white truncate flex items-center gap-1.5">
+                    <div className="text-[11px] sm:text-xs font-bold text-white truncate flex items-center gap-1.5">
                       <span>CCTV & Hardware Engineering</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
                     </div>
-                    <div className="text-[11px] text-slate-300 truncate">
-                      Surat, Kim, Ankleshwar & Bharuch Corridor
+                    <div className="text-[10px] sm:text-[11px] text-slate-300 truncate">
+                      Surat, Kim, Ankleshwar Corridor
                     </div>
                   </div>
                   <button
                     onClick={() => onOpenEnquiry({ service: 'General Consultation' })}
-                    className="flex-shrink-0 bg-brand-500 hover:bg-brand-400 text-slate-950 font-bold text-[11px] px-3 py-1.5 rounded-lg transition-colors"
+                    className="flex-shrink-0 bg-brand-500 hover:bg-brand-400 text-slate-950 font-bold text-[10px] sm:text-[11px] px-2.5 py-1.5 rounded-lg transition-colors active:scale-95"
                   >
                     Quick Quote
                   </button>
