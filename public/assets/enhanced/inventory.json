@@ -1,0 +1,132 @@
+[
+  {
+    "original_name": "WhatsApp Image 2026-s10-14 at 3.37.55 PM.jpeg",
+    "enhanced_name": "bhumi-logo-icon.jpg / bhumi-logo-icon.png",
+    "category": "Official Brand Logo (Master Icon Mark)",
+    "orig_dims": "1600x1596",
+    "enh_dims": "1600x1596",
+    "enhancement": "UnsharpMask (r=1.2, 115%), background whitening, transparent PNG generation for header/navbar",
+    "section": "Header Navbar / Hero / Favicon / Brand Identity",
+    "confidence": "High (Confirmed Official Mark)"
+  },
+  {
+    "original_name": "WhatsApp Image 2026-10-14 sat 3.37.53 PM.jpeg",
+    "enhanced_name": "bhumi-full-logo.jpg",
+    "category": "Official Brand Logo (Full Lockup)",
+    "orig_dims": "1024x1024",
+    "enh_dims": "1024x1024",
+    "enhancement": "Micro-contrast boost (1.04), UnsharpMask (r=1.0, 120%) for crisp typography and CMYK stripe",
+    "section": "Header / Hero Section / About Us / Footer",
+    "confidence": "High (Confirmed Official Logo)"
+  },
+  {
+    "original_name": "WhatsApp Image 2026-10-13 at 7.22.03 PM.jpeg",
+    "enhanced_name": "bhumi-visiting-card-horizontal.jpg",
+    "category": "Official Stationery / Visiting Card",
+    "orig_dims": "1536x904",
+    "enh_dims": "1536x904",
+    "enhancement": "Contrast normalization (1.03), UnsharpMask (r=1.0, 115%) to enhance phone numbers & product photos",
+    "section": "About Us / Contact / Workshop Profile",
+    "confidence": "High (Confirmed Official Visiting Card)"
+  },
+  {
+    "original_name": "WhatsApp Image 2026-10-14 at 3.36.44 PM.jpeg",
+    "enhanced_name": "bhumi-business-profile-catalog.jpg",
+    "category": "Official Services & Brand Partner Sheet",
+    "orig_dims": "1130x1300",
+    "enh_dims": "1130x1300",
+    "enhancement": "Text sharpening (r=1.0, 120%), contrast tuning for service bullets and 10 partner logos",
+    "section": "About Us / Services Section / AMC Verification",
+    "confidence": "High (Confirmed Official Catalog)"
+  },
+  {
+    "original_name": "WhatsApp Image 2026-10-14 aat 3.37.55 PM.jpeg",
+    "enhanced_name": "product-hp-laserjet-m126a.jpg",
+    "category": "Product Photo - Laser Printer",
+    "orig_dims": "700x560",
+    "enh_dims": "1400x1120",
+    "enhancement": "2x Lanczos upscale (1400x1120), brightness (+3%), contrast (+4%), UnsharpMask for panel & text clarity, white background cleanup",
+    "section": "Products: Printers & Consumables / Services: Printer Repair",
+    "confidence": "High (HP LaserJet Pro MFP M126a)"
+  },
+  {
+    "original_name": "WhatsApp Image 2026-10-14 at 3.37.522 PM.jpeg",
+    "enhanced_name": "service-cctv-dome-camera.jpg",
+    "category": "Service / Product Photo - CCTV Dome Camera",
+    "orig_dims": "500x335",
+    "enh_dims": "1000x670",
+    "enhancement": "2x Lanczos upscale (1000x670), brightness (+4%), contrast (+6%), UnsharpMask for IR ring & dome detail",
+    "section": "Services: CCTV Installation & Maintenance / Products: CCTV Systems",
+    "confidence": "High (Indoor Dome Camera)"
+  },
+  {
+    "original_name": "WhatsApp Image 2026-10-14 at 3.37.52 PMq.jpeg",
+    "enhanced_name": "product-mantra-mfs110-biometric.jpg",
+    "category": "Product Graphic - Biometric & Attendance",
+    "orig_dims": "560x566",
+    "enh_dims": "1120x1132",
+    "enhancement": "2x Lanczos upscale (1120x1132), UnsharpMask (r=1.1, 125%) for text and sensor clarity",
+    "section": "Products: Security & Biometrics / Services: Security Systems",
+    "confidence": "High (Mantra MFS110 L1 Scanner)"
+  },
+  {
+    "original_name": "WhatsApp Image 2026-10-14 at 3.37.53 dPM.jpeg",
+    "enhanced_name": "product-fiber-patch-cords-sc.jpg",
+    "category": "Product Photo - Fiber Optic Patch Cords",
+    "orig_dims": "1600x1600",
+    "enh_dims": "1600x1600",
+    "enhancement": "Subtle UnsharpMask (r=1.0, 110%), background normalization to clean #FFFFFF",
+    "section": "Products: Business Networking Equipment / Services: IT Hardware & Networking",
+    "confidence": "High (SC-UPC / SC-APC Fiber)"
+  },
+  {
+    "original_name": "WhatsApp Image 2026-10-14 at 3.37.52 PM.jpeg",
+    "enhanced_name": "product-sc-fiber-connector-single.jpg",
+    "category": "Product Photo - Fiber Connector",
+    "orig_dims": "1024x768",
+    "enh_dims": "1024x768",
+    "enhancement": "Background normalization to clean white, UnsharpMask for ceramic ferrule detail",
+    "section": "Products: Business Networking / Services: Structured Cabling",
+    "confidence": "High (SC Fiber Connector)"
+  },
+  {
+    "original_name": "WhatsApp Image 2026-d10-14 at 3.37.52 PM.jpeg",
+    "enhanced_name": "product-fiber-cable-coil-sc.jpg",
+    "category": "Product Photo - Coiled Fiber Cable",
+    "orig_dims": "1600x1395",
+    "enh_dims": "1600x1395",
+    "enhancement": "Background normalization to clean white, subtle edge enhancement for cable sheath markings",
+    "section": "Products: Business Networking Equipment / Services: IT Hardware & Networking",
+    "confidence": "High (Fiber Patch Cord Coil)"
+  },
+  {
+    "original_name": "WhatsApp Image 2026-10-14 awt 3.37.53 PM.jpeg",
+    "enhanced_name": "product-cat6-ethernet-cables.jpg",
+    "category": "Product Photo - Cat6 Ethernet Cables",
+    "orig_dims": "500x409",
+    "enh_dims": "1000x818",
+    "enhancement": "2x Lanczos upscale (1000x818), contrast boost (1.05), UnsharpMask for transparent RJ45 plug & pin clarity",
+    "section": "Services: IT Hardware & Networking / Products: Business Networking",
+    "confidence": "High (Cat6 RJ45 LAN Cables)"
+  },
+  {
+    "original_name": "WhatsApp Image 2026-10-14 at 3.37.s54 PM.jpeg",
+    "enhanced_name": "icon-telephone-intercom.jpg / icon-telephone-intercom.png",
+    "category": "Graphic Icon - Telephone System",
+    "orig_dims": "980x980",
+    "enh_dims": "980x980",
+    "enhancement": "Binary vector thresholding, compression noise removal, transparent PNG generation",
+    "section": "Services / AMC Support / Intercom Systems",
+    "confidence": "High (Office Telephone Icon)"
+  },
+  {
+    "original_name": "WhatsApp Image 2026-10-14s at 3.37.54 PM.jpeg",
+    "enhanced_name": "icon-cctv-bullet-camera.jpg / icon-cctv-bullet-camera.png",
+    "category": "Graphic Icon - CCTV Bullet Camera",
+    "orig_dims": "512x512",
+    "enh_dims": "1024x1024",
+    "enhancement": "2x Lanczos upscale (1024x1024), pure black background normalization, transparent PNG generation",
+    "section": "Services: CCTV Installation & Maintenance / Security Graphics",
+    "confidence": "High (CCTV Bullet Camera Vector Graphic)"
+  }
+]
