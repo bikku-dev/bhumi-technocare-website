@@ -53,29 +53,18 @@ export default function Navbar({ currentView, onNavigate }) {
       }`}>
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3 min-w-0 w-full">
           
-          {/* Official BHUMI TECHNOCARE Logo & Name */}
+          {/* Official Full BHUMI TECHNOCARE Logo Image */}
           <a 
             href="#/" 
             onClick={(e) => { e.preventDefault(); handleLinkClick('#/'); }}
-            className="flex items-center gap-2.5 group flex-shrink-0 min-w-0"
+            className="flex items-center group flex-shrink-0"
+            aria-label="BHUMI TECHNOCARE Home"
           >
-            <div className="w-8 h-8 sm:w-8.5 sm:h-8.5 flex items-center justify-center flex-shrink-0">
-              <img 
-                src="/assets/enhanced/bhumi-logo-icon.png" 
-                alt="BHUMI TECHNOCARE Logo" 
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div className="truncate">
-              <div className="flex items-center gap-1 leading-tight">
-                <span className="text-base sm:text-lg font-black tracking-tight text-slate-900 dark:text-white">
-                  BHUMI
-                </span>
-                <span className="text-base sm:text-lg font-light tracking-wide text-brand-600 dark:text-brand-400">
-                  TECHNOCARE
-                </span>
-              </div>
-            </div>
+            <img 
+              src="/assets/enhanced/bhumi-full-logo-transparent.png" 
+              alt="BHUMI TECHNOCARE" 
+              className="h-[38px] md:h-[48px] w-auto object-contain transition-all duration-200"
+            />
           </a>
 
           {/* Desktop Nav Links */}

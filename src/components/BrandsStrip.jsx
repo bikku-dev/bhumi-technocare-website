@@ -32,16 +32,16 @@ export default function BrandsStrip() {
           {BRANDS.map((brand) => (
             <div
               key={brand.name}
-              className="brand-card-item p-2 sm:p-2.5 rounded-xl bg-slate-50 dark:bg-white/95 border border-slate-200/80 dark:border-slate-200 flex flex-col items-center justify-center hover:border-brand-500 transition-colors shadow-2xs group"
+              className="brand-card-item p-2 sm:p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 flex flex-col items-center justify-center hover:border-brand-500 dark:hover:border-brand-500/60 transition-colors shadow-2xs group"
               title={`${brand.name} - ${brand.desc}`}
             >
               <img
                 src={brand.logo}
                 alt={`${brand.name} Logo`}
                 loading="lazy"
-                className="h-7 sm:h-8 w-auto max-w-[80px] object-contain group-hover:scale-105 transition-transform"
+                className="h-7 sm:h-8 w-auto max-w-[80px] object-contain group-hover:scale-105 transition-transform dark:bg-white/90 dark:px-1.5 dark:py-0.5 dark:rounded"
               />
-              <span className="text-[10px] font-semibold text-slate-700 mt-1 truncate max-w-full">
+              <span className="text-[10px] font-semibold text-slate-700 dark:text-slate-300 mt-1 truncate max-w-full">
                 {brand.name}
               </span>
             </div>
