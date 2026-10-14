@@ -1,22 +1,11 @@
 import React, { useEffect, useRef } from 'react';
-import { 
-  ArrowRight, 
-  MessageSquare, 
-  ShieldCheck, 
-  Cpu, 
-  Video, 
-  CheckCircle2, 
-  Wrench,
-  Sparkles
-} from 'lucide-react';
-import HeroVideoBackground from './HeroVideoBackground';
+import { ArrowRight, Phone, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/websiteData';
 import { gsap, prefersReducedMotion } from '../utils/gsapConfig';
 
-export default function Hero({ onOpenEnquiry }) {
+export default function Hero() {
   const heroRef = useRef(null);
 
-  // Cinematic GSAP entrance sequence
   useEffect(() => {
     if (prefersReducedMotion() || !heroRef.current) return;
 
@@ -24,39 +13,27 @@ export default function Hero({ onOpenEnquiry }) {
       const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
 
       tl.fromTo(
-        '.hero-eyebrow',
-        { opacity: 0, y: -10 },
-        { opacity: 1, y: 0, duration: 0.5, delay: 0.15 }
+        '.hero-title',
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.6 }
       )
       .fromTo(
-        '.hero-main-title',
-        { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.7 },
-        '-=0.3'
-      )
-      .fromTo(
-        '.hero-subtext',
-        { opacity: 0, y: 16 },
+        '.hero-desc',
+        { opacity: 0, y: 15 },
         { opacity: 1, y: 0, duration: 0.5 },
-        '-=0.4'
-      )
-      .fromTo(
-        '.hero-action-btn',
-        { opacity: 0, y: 14 },
-        { opacity: 1, y: 0, duration: 0.45, stagger: 0.08 },
         '-=0.3'
       )
       .fromTo(
-        '.hero-trust-tag',
-        { opacity: 0, y: 10 },
-        { opacity: 1, y: 0, duration: 0.4 },
-        '-=0.2'
+        '.hero-btn',
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.4, stagger: 0.08 },
+        '-=0.3'
       )
       .fromTo(
-        '.hero-visual-container',
-        { opacity: 0, scale: 0.96, x: 20 },
-        { opacity: 1, scale: 1, x: 0, duration: 0.8 },
-        '-=0.6'
+        '.hero-meta',
+        { opacity: 0 },
+        { opacity: 1, duration: 0.4 },
+        '-=0.2'
       );
     }, heroRef);
 
@@ -65,122 +42,68 @@ export default function Hero({ onOpenEnquiry }) {
 
   return (
     <section 
-      id="hero" 
+      id="home" 
       ref={heroRef}
-      className="relative min-h-0 lg:min-h-[90vh] flex items-center pt-24 sm:pt-32 lg:pt-36 pb-12 sm:pb-16 lg:pb-20 overflow-hidden w-full max-w-full"
+      className="relative pt-28 sm:pt-36 lg:pt-40 pb-16 sm:pb-20 lg:pb-24 bg-gradient-to-b from-slate-100 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 border-b border-slate-200 dark:border-slate-800 transition-colors duration-200"
     >
-      {/* Cinematic Background Video & Fallback Layer */}
-      <HeroVideoBackground />
+      {/* Subtle background glow effect */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-brand-500/10 dark:bg-brand-500/15 rounded-full blur-3xl opacity-70" />
+      </div>
 
-      <div className="relative z-10 max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full min-w-0">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 items-center">
-          
-          {/* Left Column: Headline, Copy & Actions */}
-          <div className="lg:col-span-7 space-y-3.5 sm:space-y-5 lg:space-y-6 text-center lg:text-left min-w-0">
-            
-            {/* Small Eyebrow Label */}
-            <div className="hero-eyebrow inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-slate-900/80 dark:bg-slate-900/90 text-brand-400 dark:text-brand-300 border border-slate-700/60 dark:border-brand-500/30 text-[10px] sm:text-xs font-bold tracking-wider uppercase shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
-              <span>IT HARDWARE • CCTV • TECHNICAL SUPPORT</span>
-            </div>
-
-            {/* Large, Elegant Headline - naturally fitted for mobile */}
-            <h1 
-              className="hero-main-title font-black tracking-tight text-slate-900 dark:text-white leading-[1.15] sm:leading-[1.12]"
-              style={{ fontSize: 'clamp(1.75rem, 3.8vw + 0.6rem, 4.25rem)' }}
-            >
-              Technology That Keeps{' '}
-              <span className="bg-gradient-to-r from-brand-600 via-sky-500 to-accent-500 dark:from-brand-400 dark:via-sky-300 dark:to-accent-400 bg-clip-text text-transparent inline-block">
-                Your Business
-              </span>{' '}
-              Moving.
-            </h1>
-
-            {/* Supporting Paragraph */}
-            <p className="hero-subtext text-xs sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
-              Explore enterprise IT hardware, chip-level computer diagnostics, 4K CCTV surveillance, and corporate maintenance contracts from <strong className="text-slate-900 dark:text-white">BHUMI TECHNOCARE</strong>.
-            </p>
-
-            {/* Two Primary Actions */}
-            <div className="pt-1 sm:pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-2.5 sm:gap-3.5 w-full sm:w-auto">
-              <button
-                onClick={() => onOpenEnquiry()}
-                className="hero-action-btn inline-flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-xs sm:text-base px-5 sm:px-7 py-3 sm:py-4 rounded-xl shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
-              >
-                <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-                <span>Get a Service Quote</span>
-              </button>
-
-              <a
-                href="#services"
-                className="hero-action-btn inline-flex items-center justify-center gap-2 bg-white/90 hover:bg-white dark:bg-slate-900/90 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white font-semibold text-xs sm:text-base px-5 sm:px-6 py-3 sm:py-4 rounded-xl border border-slate-200 dark:border-slate-800 transition-all shadow-sm hover:border-slate-300 dark:hover:border-slate-700"
-              >
-                <span>Explore Our Services</span>
-                <ArrowRight className="w-4 h-4 text-brand-500 dark:text-brand-400 flex-shrink-0" />
-              </a>
-            </div>
-
-            {/* Trust Indicator with Verified Information */}
-            <div className="hero-trust-tag pt-1 sm:pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-4 text-[11px] sm:text-xs lg:text-sm text-slate-500 dark:text-slate-400">
-              <div className="flex items-center gap-1.5 font-medium">
-                <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-500 flex-shrink-0" />
-                <span>Kim Char Rasta Hub • Since 2012</span>
-              </div>
-              <span className="hidden sm:inline">•</span>
-              <div className="flex items-center gap-1.5 font-medium">
-                <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-500 flex-shrink-0" />
-                <span>90-Day Written Repair Warranty</span>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Right Column: Clean, Cinematic Technology Workspace Composition */}
-          <div className="hero-visual-container lg:col-span-5 w-full min-w-0">
-            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden p-2 sm:p-3 bg-gradient-to-br from-slate-200/50 via-slate-100/30 to-slate-200/50 dark:from-slate-800/60 dark:via-slate-900/40 dark:to-slate-800/60 border border-slate-200 dark:border-slate-700/80 shadow-xl sm:shadow-2xl backdrop-blur-xl">
-              
-              {/* Inner Showcase Card */}
-              <div className="relative rounded-xl sm:rounded-2xl overflow-hidden aspect-[16/10] sm:aspect-[4/3] bg-slate-900 shadow-inner group">
-                <img
-                  src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=1200&q=80"
-                  alt="Bhumi Technocare Professional IT Laboratory"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-95"
-                />
-                
-                {/* Cinematic Vignette */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent" />
-
-                {/* Floating Micro-Badge Top Left */}
-                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-slate-950/85 backdrop-blur-md border border-slate-700/80 rounded-xl px-2.5 py-1 sm:px-3 sm:py-1.5 text-xs text-white flex items-center gap-1.5 sm:gap-2 shadow-lg">
-                  <Cpu className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-400" />
-                  <span className="font-semibold text-[10px] sm:text-[11px]">Precision Chip-Level Lab</span>
-                </div>
-
-                {/* Bottom Overlay Info Banner */}
-                <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 bg-slate-950/90 backdrop-blur-md border border-slate-700/80 rounded-xl sm:rounded-2xl p-2.5 sm:p-3.5 text-white flex items-center justify-between gap-2.5 shadow-xl">
-                  <div className="min-w-0">
-                    <div className="text-[11px] sm:text-xs font-bold text-white truncate flex items-center gap-1.5">
-                      <span>CCTV & Hardware Engineering</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
-                    </div>
-                    <div className="text-[10px] sm:text-[11px] text-slate-300 truncate">
-                      Surat, Kim, Ankleshwar Corridor
-                    </div>
-                  </div>
-                  <button
-                    onClick={() => onOpenEnquiry({ service: 'General Consultation' })}
-                    className="flex-shrink-0 bg-brand-500 hover:bg-brand-400 text-slate-950 font-bold text-[10px] sm:text-[11px] px-2.5 py-1.5 rounded-lg transition-colors active:scale-95"
-                  >
-                    Quick Quote
-                  </button>
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-
+      <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Simple Eyebrow */}
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-200/80 dark:bg-slate-800/80 text-brand-700 dark:text-brand-300 border border-slate-300/80 dark:border-slate-700 text-xs font-semibold mb-6 shadow-xs">
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <span>BHUMI TECHNOCARE • KIM CHAR RASTA, SURAT</span>
         </div>
+
+        {/* Clean, exact requested heading */}
+        <h1 className="hero-title text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white max-w-4xl mx-auto leading-tight sm:leading-tight">
+          IT Solutions, Hardware & Security Services
+        </h1>
+
+        {/* Short, clear description */}
+        <p className="hero-desc mt-5 sm:mt-6 text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          Reliable computer and laptop chip-level repairs, high-definition CCTV security camera installations, structured networking, and commercial Annual Maintenance Contracts (AMC) for businesses and individuals across South Gujarat.
+        </p>
+
+        {/* Two CTAs: Primary "Contact Us", Secondary "Explore Services" */}
+        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-md mx-auto">
+          <a
+            href="#contact"
+            className="hero-btn w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm sm:text-base px-7 py-3.5 rounded-xl shadow-md shadow-brand-600/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+          >
+            <span>Contact Us</span>
+            <ArrowRight className="w-4 h-4" />
+          </a>
+
+          <a
+            href="#services"
+            className="hero-btn w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 font-semibold text-sm sm:text-base px-6 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700 shadow-xs transition-all"
+          >
+            <span>Explore Services</span>
+          </a>
+        </div>
+
+        {/* Short, subtle trust indicators */}
+        <div className="hero-meta mt-10 sm:mt-12 pt-8 border-t border-slate-200/80 dark:border-slate-800/80 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+          <div className="flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+            <span>12+ Years Local Experience</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <ShieldCheck className="w-4 h-4 text-brand-500" />
+            <span>Chip-Level Motherboard Diagnostics</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Phone className="w-4 h-4 text-sky-500" />
+            <a href={`tel:${BUSINESS_INFO.whatsappNumber}`} className="hover:text-slate-900 dark:hover:text-white font-medium">
+              Direct Desk: {BUSINESS_INFO.displayPhone}
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
   );

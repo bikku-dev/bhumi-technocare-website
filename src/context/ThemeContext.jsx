@@ -10,11 +10,11 @@ export function ThemeProvider({ children }) {
         return saved;
       }
       // Check system preference
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-        return 'light';
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
       }
     }
-    return 'dark'; // Default to dark for high-tech aesthetic
+    return 'light'; // Clean light theme by default
   });
 
   useEffect(() => {
