@@ -24,12 +24,11 @@ export default function Navbar({ currentView, onNavigate }) {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#/' },
-    { name: 'Services', href: currentView === 'services' ? '#/services' : '#services' },
-    { name: 'Products', href: currentView === 'products' ? '#/products' : '#products' },
-    { name: 'AMC & Maintenance', href: '#amc' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '#/', id: 'home' },
+    { name: 'Products & Solutions', href: '#/products', id: 'products' },
+    { name: 'AMC & Maintenance', href: '#/amc', id: 'amc' },
+    { name: 'About Us', href: '#/about', id: 'about' },
+    { name: 'Contact', href: '#/contact', id: 'contact' },
   ];
 
   const handleLinkClick = (href) => {
@@ -69,19 +68,26 @@ export default function Navbar({ currentView, onNavigate }) {
 
           {/* Desktop Nav Links */}
           <div className="hidden lg:flex items-center gap-1 xl:gap-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleLinkClick(link.href);
-                }}
-                className="px-3 py-1.5 text-xs xl:text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 rounded-lg transition-colors cursor-pointer"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = currentView === link.id;
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleLinkClick(link.href);
+                  }}
+                  className={`px-3 py-1.5 text-xs xl:text-sm font-medium rounded-lg transition-colors cursor-pointer ${
+                    isActive
+                      ? 'text-brand-600 dark:text-brand-400 bg-brand-50/80 dark:bg-brand-950/60 font-semibold'
+                      : 'text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-800/60'
+                  }`}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
           </div>
 
           {/* Right Action: Dark/Light Theme Toggle */}
@@ -115,20 +121,27 @@ export default function Navbar({ currentView, onNavigate }) {
         {mobileMenuOpen && (
           <div className="lg:hidden bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 px-4 pt-2.5 pb-4 max-h-[80vh] overflow-y-auto animate-in slide-in-from-top-1 duration-150">
             <div className="flex flex-col space-y-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleLinkClick(link.href);
-                  }}
-                  className="px-3 py-2 text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-lg transition-colors flex items-center justify-between cursor-pointer"
-                >
-                  <span>{link.name}</span>
-                  <ChevronRight className="w-4 h-4 text-slate-400" />
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = currentView === link.id;
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleLinkClick(link.href);
+                    }}
+                    className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors flex items-center justify-between cursor-pointer ${
+                      isActive
+                        ? 'text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-950/60 font-semibold'
+                        : 'text-slate-800 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-900'
+                    }`}
+                  >
+                    <span>{link.name}</span>
+                    <ChevronRight className="w-4 h-4 text-slate-400" />
+                  </a>
+                );
+              })}
             </div>
           </div>
         )}

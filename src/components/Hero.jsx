@@ -3,7 +3,7 @@ import { ArrowRight, MessageSquare } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/websiteData';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
-export default function Hero({ onExploreServices }) {
+export default function Hero({ onExploreProducts }) {
   const heroRef = useRef(null);
 
   useScrollReveal(heroRef, {
@@ -43,19 +43,19 @@ export default function Hero({ onExploreServices }) {
             Sales, Service & Rent for computers, CCTV surveillance, laser printers, and optical fiber networking across Kim, Ankleshwar, and Bharuch. Led by Computer Engineer Bharat Chaudhary.
           </p>
 
-          {/* Two clean CTAs: Primary "Explore Services", Secondary "Contact on WhatsApp" */}
+          {/* Two clean CTAs: Primary "Explore Products & Solutions", Secondary "Contact on WhatsApp" */}
           <div className="hero-item pt-2 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="#services"
+              href="#/products"
               onClick={(e) => {
-                if (onExploreServices) {
+                if (onExploreProducts) {
                   e.preventDefault();
-                  onExploreServices();
+                  onExploreProducts();
                 }
               }}
-              className="inline-flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-sm transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+              className="inline-flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-sm transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
             >
-              <span>Explore Services</span>
+              <span>Explore Products & Solutions</span>
               <ArrowRight className="w-4 h-4" />
             </a>
 

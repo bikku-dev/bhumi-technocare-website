@@ -4,22 +4,39 @@ export const BUSINESS_INFO = {
   tagline: "Care With Carefully",
   contactPerson: "Bharat Chaudhary",
   designation: "Computer Engineer",
-  shortDesc: "Sales, Service & Rent for Computers, CCTV, Printers, Networking, Office Automation and Security Systems in Kim, Ankleshwar, and Bharuch.",
+
+  shortDesc:
+    "Sales, Service & Rent for Computers, CCTV, Printers, Networking, Office Automation and Security Systems in Kim, Ankleshwar, and Bharuch.",
+
   whatsappNumber: "919316440985",
   displayPhone: "+91 93164 40985",
   salesPhone: "93164 40985",
   servicePhone: "99788 17550",
   accountPhone: "99786 17550",
   additionalPhone: "99247 76616",
+
   email: "bhumi24care@gmail.com",
-  address: "11, Zam Zam Complex, Kim Char Rasta, Kim-Surat - 394110, Gujarat, India.",
-  landmark: "Near Kim Char Rasta, NH-8 Corridor",
+
+  address:
+    "BHUMI TECHNOCARE, Zam Zam Residency, F 11, Char Rasta, nr. Kim, Kim, Palod, Gujarat 394110, India.",
+
+  landmark: "Zam Zam Residency, F 11, Kim Char Rasta",
+
   serviceAreas: ["Kim", "Ankleshwar", "Bharuch"],
+
   businessModel: "Sales, Service & Rent",
+
   workingHours: "Monday – Saturday: 9:30 AM – 8:30 PM",
+
   sundayHours: "Sunday: Emergency On-Call Support Available",
-  mapsUrl: "https://maps.google.com/?q=11+Zam+Zam+Complex+Kim+Char+Rasta+Kim+Surat+394110",
-  directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=11+Zam+Zam+Complex+Kim+Char+Rasta+Kim+Surat+Gujarat+394110"
+
+  // Opens the BHUMI TECHNOCARE business listing in Google Maps
+  mapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=BHUMI%20TECHNOCARE%2C%20Zam%20Zam%20Residency%2C%20F%2011%2C%20Char%20Rasta%2C%20Kim%2C%20Palod%2C%20Gujarat%20394110",
+
+  // Opens Google Maps directions to the business
+  directionsUrl:
+    "https://www.google.com/maps/dir/?api=1&destination=BHUMI%20TECHNOCARE%2C%20Zam%20Zam%20Residency%2C%20F%2011%2C%20Char%20Rasta%2C%20Kim%2C%20Palod%2C%20Gujarat%20394110"
 };
 
 export const SERVICE_CATEGORIES = [
@@ -495,3 +512,162 @@ export const FEATURED_PRODUCTS = [
   PRODUCT_CATEGORIES.find(p => p.id === "prod-attendance-systems"),
   PRODUCT_CATEGORIES.find(p => p.id === "prod-telephone-systems")
 ].filter(Boolean);
+
+// Combined Products & Solutions (6 Compact Categories integrating all 24 services and 18 products)
+export const PRODUCTS_AND_SOLUTIONS = [
+  {
+    id: "computers-laptops",
+    title: "Computers & Laptops",
+    shortTitle: "Computers & Laptops",
+    tagline: "Desktops, Laptops, Upgrades & Chip-Level Repair",
+    description: "Desktop computers and business laptops sales, chip-level motherboard diagnostics, SSD/RAM speed upgrades, OS restoration, and flexible hardware rentals.",
+    image: "/assets/catalog/product-desktop-laptop-computers.jpg",
+    clientImage: null,
+    itemsIncluded: [
+      "Commercial Desktops & Tower PCs",
+      "Business Laptops & Mobile Workstations",
+      "RAM Modules (DDR3/DDR4/DDR5) & High-Speed SSDs",
+      "Processors, Motherboards & SMPS Power Units",
+      "Display Panels, Keyboards & Internal Peripherals"
+    ],
+    serviceOptions: [
+      "Purchase New / Custom PC",
+      "Chip-Level Motherboard Repair",
+      "SSD & RAM Speed Upgrade",
+      "OS & System Troubleshooting",
+      "Monthly Hardware Rental",
+      "Preventive PC Maintenance"
+    ],
+    whatsappPrompt: "Hello Bhumi Technocare, I would like to enquire about Computers & Laptops"
+  },
+  {
+    id: "printer-solutions",
+    title: "Printer Solutions",
+    shortTitle: "Printer Solutions",
+    tagline: "Laser, Label, Xerox Machines & Refills",
+    description: "Multi-function laser printers, thermal barcode label printers, digital Xerox copiers, toner cartridges, label rolls, ribbons, and Xerox paper supply with servicing and cartridge refills.",
+    image: "/assets/enhanced/product-hp-laserjet-m126a.jpg",
+    clientImage: "/assets/enhanced/product-hp-laserjet-m126a.jpg",
+    itemsIncluded: [
+      "Multi-Function Laser Printers (HP LaserJet, Canon, Brother)",
+      "Thermal Barcode & Dispatch Label Printers",
+      "Heavy-Duty Digital Xerox Copiers (Sales & Rent)",
+      "OEM & High-Yield Compatible Toner Cartridges",
+      "Direct Thermal Labels & Thermal Ribbon Rolls",
+      "Premium 70/75/80 GSM Xerox Paper Reams"
+    ],
+    serviceOptions: [
+      "Laser / Label Printer Purchase",
+      "Printer Logic Board & Roller Repair",
+      "Toner Cartridge Refill & Drum Replacement",
+      "Xerox Copier Machine Rental",
+      "Labels, Ribbons & Paper Bulk Supply"
+    ],
+    whatsappPrompt: "Hello Bhumi Technocare, I would like to enquire about Printer Solutions"
+  },
+  {
+    id: "cctv-security",
+    title: "CCTV & Security",
+    shortTitle: "CCTV & Security",
+    tagline: "Surveillance, Biometrics & Smart Access",
+    description: "High-definition analog and IP CCTV cameras, ColorVu night vision, DVR/NVR recorders, biometric attendance systems, and electronic magnetic door locks.",
+    image: "/assets/enhanced/service-cctv-dome-camera.jpg",
+    clientImage: "/assets/enhanced/service-cctv-dome-camera.jpg",
+    secondaryImage: "/assets/enhanced/product-mantra-mfs110-biometric.jpg",
+    itemsIncluded: [
+      "HD Analog & IP Dome / Bullet Security Cameras",
+      "ColorVu 24/7 Full-Color Night Vision Cameras",
+      "4/8/16/32 Channel DVR & NVR Surveillance Recorders",
+      "Biometric Fingerprint & RFID Attendance Machines",
+      "Electromagnetic Door Locks & Smart Card Access Systems",
+      "Surveillance Hard Drives & Heavy-Duty Power Supplies"
+    ],
+    serviceOptions: [
+      "New CCTV Surveillance Setup",
+      "Mobile Viewing & DVR/NVR Configuration",
+      "Camera Troubleshooting & Re-alignment",
+      "Biometric Attendance Installation",
+      "Electronic Magnetic Lock Setup"
+    ],
+    whatsappPrompt: "Hello Bhumi Technocare, I would like to enquire about CCTV & Security Solutions"
+  },
+  {
+    id: "networking-connectivity",
+    title: "Networking & Connectivity",
+    shortTitle: "Networking & Connectivity",
+    tagline: "Switches, Routers, Cat6 & Fiber Optics",
+    description: "Structured Cat6 LAN cabling, enterprise gigabit switches, high-gain Wi-Fi routers, server racks, optical fiber patch cords, single-core fiber cables, and connectors.",
+    image: "/assets/enhanced/product-cat6-ethernet-cables.jpg",
+    clientImage: "/assets/enhanced/product-cat6-ethernet-cables.jpg",
+    secondaryImage: "/assets/enhanced/product-fiber-patch-cords-sc.jpg",
+    itemsIncluded: [
+      "Gigabit Managed & Unmanaged Network Switches",
+      "High-Coverage Dual-Band Wi-Fi Routers & Access Points",
+      "Cat6 UTP / STP Structured LAN Cabling",
+      "Server Racks, Wall-Mount Network Cabinets & Patch Panels",
+      "Singlemode / Multimode Optical Fiber Patch Cords",
+      "Fiber Single Core Cables & SC/LC Optical Connectors",
+      "RJ45 Crimping Connectors, Couplers & BNC Leads"
+    ],
+    serviceOptions: [
+      "Office & Factory LAN Structured Cabling",
+      "Switch & Router Configuration",
+      "Fiber Cable Splicing & Patching",
+      "Server Rack Setup & Cable Dressing",
+      "Long-Range Wi-Fi Coverage Installation"
+    ],
+    whatsappPrompt: "Hello Bhumi Technocare, I would like to enquire about Networking & Fiber Connectivity"
+  },
+  {
+    id: "communication-display",
+    title: "Communication & Display",
+    shortTitle: "Communication & Display",
+    tagline: "Intercoms, PA Audio, TVs & Projectors",
+    description: "PBX/EPABX intercom systems, commercial PA audio amplifiers and speakers, high-resolution LED TVs, monitors, and business presentation projectors with rental options.",
+    image: "/assets/enhanced/icon-telephone-intercom.png",
+    clientImage: "/assets/enhanced/icon-telephone-intercom.png",
+    itemsIncluded: [
+      "Office PBX / EPABX Intercom Systems & Desk Handsets",
+      "Public Address (PA) Audio Amplifiers & Horn / Ceiling Speakers",
+      "Commercial LED Display Monitors (Workstations & CCTV Walls)",
+      "High-Lumen Presentation Projectors & Motorized Screens",
+      "Audio Announcement Microphones & Mixers"
+    ],
+    serviceOptions: [
+      "EPABX Intercom Setup & Cabling",
+      "Commercial PA & Announcement System Setup",
+      "LED TV & Display Monitor Supply",
+      "Projector Rental & Meeting Room Setup",
+      "Audio / Intercom Troubleshooting"
+    ],
+    whatsappPrompt: "Hello Bhumi Technocare, I would like to enquire about Communication & Display Solutions"
+  },
+  {
+    id: "it-software-solutions",
+    title: "IT & Software Solutions",
+    shortTitle: "IT & Software",
+    tagline: "Antivirus, Backups, Spares & Consultancy",
+    description: "Computer hardware components, licensed Quick Heal antivirus, accounting software multi-user LAN support, external hard drives, SSDs, pen drives, and professional IT consultancy.",
+    image: "/assets/catalog/service-antivirus-firewall.jpg",
+    clientImage: null,
+    itemsIncluded: [
+      "Licensed Quick Heal Total Security & Endpoint Antivirus",
+      "Accounting Software Installation, Multi-User LAN & Data Backups",
+      "Rugged External Hard Drives (1TB/2TB/4TB) & High-Speed Portable SSDs",
+      "USB Pen Drives, Memory Cards & Data Transfer Media",
+      "Motherboard Spares, Graphic Cards, Power Adapters & Cables",
+      "End-to-End Commercial IT Infrastructure Consultancy"
+    ],
+    serviceOptions: [
+      "Genuine Antivirus License Renewal / New Setup",
+      "Accounting Software LAN & Automated Backup Setup",
+      "External Storage & Data Safety Solution",
+      "Hardware Spares & Peripherals Procurement",
+      "Commercial IT Infrastructure Consultancy"
+    ],
+    whatsappPrompt: "Hello Bhumi Technocare, I would like to enquire about IT & Software Solutions"
+  }
+];
+
+export const FEATURED_CATEGORIES = PRODUCTS_AND_SOLUTIONS;
+

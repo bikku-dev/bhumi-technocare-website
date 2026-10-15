@@ -71,7 +71,7 @@ export default function AmcSection() {
         </div>
 
         {/* Overview Box */}
-        <div className="mb-12 p-6 sm:p-8 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 max-w-4xl mx-auto text-center">
+        <div className="mb-12p-6 sm:p-8 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 max-w-4xl mx-auto text-center">
           <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
             {AMC_CONSULTANCY_INFO.overview}
           </p>

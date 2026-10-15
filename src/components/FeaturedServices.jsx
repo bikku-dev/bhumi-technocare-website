@@ -68,7 +68,7 @@ export default function FeaturedServices({ onExploreAll }) {
             return (
               <div
                 key={service.id}
-                className="service-card-item group rounded-2xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 overflow-hidden hover:border-brand-500/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                className="service-card-item group rounded-2xl bg-slate-50/80 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden hover:border-brand-500/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   {/* Relevant Client-Provided Image Banner */}
@@ -95,7 +95,7 @@ export default function FeaturedServices({ onExploreAll }) {
                     <h3 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                       {service.title}
                     </h3>
-                    <p className="mt-1.5 text-xs text-slate-600 dark:text-slate-400 line-clamp-2 leading-relaxed">
+                    <p className="mt-1.5 text-xs text-slate-600 dark:text-slate-300 line-clamp-2 leading-relaxed">
                       {service.description}
                     </p>
                   </div>

@@ -3,45 +3,64 @@ import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TrustHighlights from './components/TrustHighlights';
-import FeaturedServices from './components/FeaturedServices';
-import FeaturedProducts from './components/FeaturedProducts';
+import FeaturedCategories from './components/FeaturedCategories';
 import BrandsStrip from './components/BrandsStrip';
 import CompactAmc from './components/CompactAmc';
-import AboutUsSection from './components/AboutUsSection';
-import ContactSection from './components/ContactSection';
-import ServicesPage from './components/ServicesPage';
+import ContactCtaBanner from './components/ContactCtaBanner';
 import ProductsPage from './components/ProductsPage';
+import AmcPage from './components/AmcPage';
+import AboutPage from './components/AboutPage';
+import ContactPage from './components/ContactPage';
 import Footer from './components/Footer';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
+
+const parseRoute = () => {
+  const hash = window.location.hash || '';
+  const pathname = window.location.pathname || '';
+
+  // 1. Products & Solutions (including backward-compatible mapping of /services and #services)
+  if (
+    hash === '#/products' || 
+    hash === '#products' || 
+    hash === '#products-page' || 
+    hash === '#/services' || 
+    hash === '#services' || 
+    hash === '#services-page' ||
+    pathname === '/products' ||
+    pathname === '/services'
+  ) {
+    return 'products';
+  }
+
+  // 2. AMC & Maintenance
+  if (hash === '#/amc' || hash === '#amc' || pathname === '/amc') {
+    return 'amc';
+  }
+
+  // 3. About Us
+  if (hash === '#/about' || hash === '#about' || pathname === '/about') {
+    return 'about';
+  }
+
+  // 4. Contact
+  if (hash === '#/contact' || hash === '#contact' || pathname === '/contact') {
+    return 'contact';
+  }
+
+  // Default: Home
+  return 'home';
+};
 
 function AppContent() {
   useSmoothScroll();
 
-  const [currentView, setCurrentView] = useState(() => {
-    const hash = window.location.hash;
-    if (hash === '#/services' || hash === '#services-page') return 'services';
-    if (hash === '#/products' || hash === '#products-page') return 'products';
-    return 'home';
-  });
+  const [currentView, setCurrentView] = useState(() => parseRoute());
 
   useEffect(() => {
     const handleHashChange = () => {
-      const hash = window.location.hash;
-      if (hash === '#/services' || hash === '#services-page') {
-        setCurrentView('services');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === '#/products' || hash === '#products-page') {
-        setCurrentView('products');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        setCurrentView('home');
-        if (hash && hash !== '#home' && hash !== '#/' && !hash.startsWith('#/')) {
-          setTimeout(() => {
-            const el = document.querySelector(hash);
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
-          }, 80);
-        }
-      }
+      const nextView = parseRoute();
+      setCurrentView(nextView);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     window.addEventListener('hashchange', handleHashChange);
@@ -49,73 +68,77 @@ function AppContent() {
   }, []);
 
   const handleNavigate = (target) => {
-    if (target === '#/services' || target === '#services-page') {
-      window.location.hash = '#/services';
-      setCurrentView('services');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (target === '#/products' || target === '#products-page') {
-      window.location.hash = '#/products';
-      setCurrentView('products');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    let nextHash = '#/';
+    let nextView = 'home';
+
+    if (
+      target === '#/products' || 
+      target === '#products' || 
+      target === '#/services' || 
+      target === '#services'
+    ) {
+      nextHash = '#/products';
+      nextView = 'products';
+    } else if (target === '#/amc' || target === '#amc') {
+      nextHash = '#/amc';
+      nextView = 'amc';
+    } else if (target === '#/about' || target === '#about') {
+      nextHash = '#/about';
+      nextView = 'about';
+    } else if (target === '#/contact' || target === '#contact') {
+      nextHash = '#/contact';
+      nextView = 'contact';
     } else {
-      if (currentView !== 'home') {
-        setCurrentView('home');
-      }
-      window.location.hash = target;
-      if (target === '#/' || target === '#home') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        setTimeout(() => {
-          const el = document.querySelector(target);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 80);
-      }
+      nextHash = '#/';
+      nextView = 'home';
     }
+
+    window.location.hash = nextHash;
+    setCurrentView(nextView);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans selection:bg-brand-500 selection:text-white w-full max-w-full overflow-x-hidden transition-colors duration-200">
-      {/* Compact Header Navigation */}
+      {/* 5-Link Navigation Header with Logo and Active Link Indicator */}
       <Navbar currentView={currentView} onNavigate={handleNavigate} />
 
-      {/* Main Content with Progressive Disclosure */}
+      {/* Main Content Router */}
       <main className="flex-1 w-full min-w-0">
         <div key={currentView} className="view-transition">
-          {currentView === 'services' ? (
-            <ServicesPage onBack={() => handleNavigate('#/')} />
-          ) : currentView === 'products' ? (
+          {currentView === 'products' ? (
             <ProductsPage onBack={() => handleNavigate('#/')} />
+          ) : currentView === 'amc' ? (
+            <AmcPage onBack={() => handleNavigate('#/')} />
+          ) : currentView === 'about' ? (
+            <AboutPage onBack={() => handleNavigate('#/')} />
+          ) : currentView === 'contact' ? (
+            <ContactPage onBack={() => handleNavigate('#/')} />
           ) : (
             <>
               {/* 1. Hero Section */}
-              <Hero onExploreServices={() => handleNavigate('#/services')} />
+              <Hero onExploreProducts={() => handleNavigate('#/products')} />
 
-              {/* 2. Compact Trust Highlights */}
+              {/* 2. Trust Highlights */}
               <TrustHighlights />
 
-              {/* 3. Featured Services (6 Compact Cards) */}
-              <FeaturedServices onExploreAll={() => handleNavigate('#/services')} />
+              {/* 3. Featured Categories (6 Combined Divisions) */}
+              <FeaturedCategories onViewAll={() => handleNavigate('#/products')} />
 
-              {/* 4. Featured Products (6 Compact Cards) */}
-              <FeaturedProducts onViewAll={() => handleNavigate('#/products')} />
+              {/* 4. AMC Highlight Section */}
+              <CompactAmc onViewAmc={() => handleNavigate('#/amc')} />
 
-              {/* 5. Brands We Supply & Service (10 Logos Strip) */}
+              {/* 5. Supported & Supplied Brands Strip */}
               <BrandsStrip />
 
-              {/* 6. Compact AMC & Maintenance */}
-              <CompactAmc />
-
-              {/* 7. About Us Section (Bharat Chaudhary Identity) */}
-              <AboutUsSection />
-
-              {/* 8. Contact & Location Section */}
-              <ContactSection />
+              {/* 6. Contact & Consultation CTA Banner */}
+              <ContactCtaBanner onContactClick={() => handleNavigate('#/contact')} />
             </>
           )}
         </div>
       </main>
 
-      {/* Concise Footer */}
+      {/* Minimal 2-Column Footer */}
       <Footer onNavigate={handleNavigate} />
     </div>
   );
