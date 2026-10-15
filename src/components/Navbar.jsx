@@ -47,8 +47,8 @@ export default function Navbar({ currentView, onNavigate }) {
     >
       <nav className={`transition-all duration-200 ${
         isScrolled 
-          ? 'bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-xs py-2 sm:py-2.5' 
-          : 'bg-white/90 dark:bg-slate-950/90 backdrop-blur-sm border-b border-slate-200/60 dark:border-slate-800/60 py-2.5 sm:py-3'
+          ? 'bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-slate-200/90 dark:border-slate-800 shadow-xs py-2 sm:py-2.5' 
+          : 'bg-white/90 dark:bg-slate-950/90 backdrop-blur-sm border-b border-slate-200/60 dark:border-slate-800/60 py-2.5 sm:py-3.5'
       }`}>
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3 min-w-0 w-full">
           
@@ -62,7 +62,7 @@ export default function Navbar({ currentView, onNavigate }) {
             <img 
               src="/assets/enhanced/bhumi-full-logo-transparent.png" 
               alt="BHUMI TECHNOCARE" 
-              className="h-[38px] md:h-[48px] w-auto object-contain transition-all duration-200"
+              className="h-[36px] sm:h-[40px] md:h-[46px] w-auto object-contain transition-all duration-200"
             />
           </a>
 
@@ -78,10 +78,10 @@ export default function Navbar({ currentView, onNavigate }) {
                     e.preventDefault();
                     handleLinkClick(link.href);
                   }}
-                  className={`px-3 py-1.5 text-xs xl:text-sm font-medium rounded-lg transition-colors cursor-pointer ${
+                  className={`px-3 py-1.5 text-xs xl:text-sm font-medium rounded-lg transition-colors cursor-pointer relative ${
                     isActive
-                      ? 'text-brand-600 dark:text-brand-400 bg-brand-50/80 dark:bg-brand-950/60 font-semibold'
-                      : 'text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-800/60'
+                      ? 'text-brand-600 dark:text-brand-400 bg-brand-50/90 dark:bg-brand-950/70 font-semibold border border-brand-200/60 dark:border-brand-800/60'
+                      : 'text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100/80 dark:hover:bg-slate-800/60'
                   }`}
                 >
                   {link.name}
@@ -90,11 +90,12 @@ export default function Navbar({ currentView, onNavigate }) {
             })}
           </div>
 
-          {/* Right Action: Dark/Light Theme Toggle */}
+          {/* Right Action: Dark/Light Theme Toggle + Mobile Toggle */}
           <div className="flex items-center gap-2 flex-shrink-0">
+            {/* Dark/Light Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-1.5 sm:p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition-colors"
+              className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition-colors min-w-[36px] min-h-[36px] flex items-center justify-center cursor-pointer"
               title={isDark ? "Switch to Light Theme" : "Switch to Dark Theme"}
               aria-label="Toggle theme"
             >
@@ -108,8 +109,8 @@ export default function Navbar({ currentView, onNavigate }) {
             {/* Mobile Hamburger Menu Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-1.5 sm:p-2 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 transition-colors"
-              aria-label="Toggle navigation menu"
+              className="lg:hidden p-2 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 transition-colors min-w-[36px] min-h-[36px] flex items-center justify-center cursor-pointer"
+              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -131,7 +132,7 @@ export default function Navbar({ currentView, onNavigate }) {
                       e.preventDefault();
                       handleLinkClick(link.href);
                     }}
-                    className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors flex items-center justify-between cursor-pointer ${
+                    className={`px-3 py-2.5 text-sm font-medium rounded-lg transition-colors flex items-center justify-between cursor-pointer min-h-[44px] ${
                       isActive
                         ? 'text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-950/60 font-semibold'
                         : 'text-slate-800 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-900'

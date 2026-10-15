@@ -4,8 +4,10 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TrustHighlights from './components/TrustHighlights';
 import FeaturedCategories from './components/FeaturedCategories';
-import BrandsStrip from './components/BrandsStrip';
+import TechnicalCapabilities from './components/TechnicalCapabilities';
+import WhyChooseUs from './components/WhyChooseUs';
 import CompactAmc from './components/CompactAmc';
+import BrandsStrip from './components/BrandsStrip';
 import ContactCtaBanner from './components/ContactCtaBanner';
 import ProductsPage from './components/ProductsPage';
 import AmcPage from './components/AmcPage';
@@ -116,29 +118,35 @@ function AppContent() {
             <ContactPage onBack={() => handleNavigate('#/')} />
           ) : (
             <>
-              {/* 1. Hero Section */}
+              {/* A. Premium Hero Section */}
               <Hero onExploreProducts={() => handleNavigate('#/products')} />
 
-              {/* 2. Trust Highlights */}
+              {/* B. Compact Trust / Business Information Strip */}
               <TrustHighlights />
 
-              {/* 3. Featured Categories (6 Combined Divisions) */}
+              {/* C. Featured Products & Solutions (6 Core Categories) */}
               <FeaturedCategories onViewAll={() => handleNavigate('#/products')} />
 
-              {/* 4. AMC Highlight Section */}
+              {/* D. What We Do / Relevant Repair & Installation Capabilities */}
+              <TechnicalCapabilities />
+
+              {/* E. Why Choose Bhumi Technocare (Verifiable Strengths) */}
+              <WhyChooseUs />
+
+              {/* F. AMC & Maintenance Promotional Section */}
               <CompactAmc onViewAmc={() => handleNavigate('#/amc')} />
 
-              {/* 5. Supported & Supplied Brands Strip */}
+              {/* Brands Strip */}
               <BrandsStrip />
 
-              {/* 6. Contact & Consultation CTA Banner */}
+              {/* G. Clear Contact & Consultation CTA Banner */}
               <ContactCtaBanner onContactClick={() => handleNavigate('#/contact')} />
             </>
           )}
         </div>
       </main>
 
-      {/* Minimal 2-Column Footer */}
+      {/* H. Professional Footer */}
       <Footer onNavigate={handleNavigate} />
     </div>
   );

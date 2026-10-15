@@ -33,6 +33,9 @@ export default {
           800: '#0f172a',
           900: '#0a0f1d',
           950: '#060913',
+        },
+        slate: {
+          850: '#141d2e',
         }
       },
       fontFamily: {
