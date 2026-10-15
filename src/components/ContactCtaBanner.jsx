@@ -1,11 +1,19 @@
 import React from 'react';
-import { MessageSquare, Phone, MapPin, ArrowRight, ShieldCheck } from 'lucide-react';
+import { MessageSquareQuote, Phone, MapPin, ArrowRight, ShieldCheck } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/websiteData';
 
-export default function ContactCtaBanner({ onContactClick }) {
+export default function ContactCtaBanner({ onContactClick, onRequestQuote }) {
   const whatsappUrl = `https://wa.me/${BUSINESS_INFO.whatsappNumber}?text=${encodeURIComponent(
     "Hello Bharat Chaudhary, I would like to consult with you regarding IT hardware / security solutions."
   )}`;
+
+  const handleQuoteClick = () => {
+    if (onRequestQuote) {
+      onRequestQuote({ service: 'Complete Infrastructure & Hardware Upgrade' });
+    } else {
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    }
+  };
 
   return (
     <section className="py-14 sm:py-18 bg-gradient-to-br from-slate-900 via-slate-950 to-brand-950 text-white relative overflow-hidden border-b border-slate-800">
@@ -26,10 +34,18 @@ export default function ContactCtaBanner({ onContactClick }) {
           </h2>
 
           <p className="text-xs sm:text-sm lg:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Connect directly with Computer Engineer Bharat Chaudhary for practical hardware guidance, on-site diagnostics, or flexible commercial rentals.
+            Connect directly with Computer Engineer Bharat Chaudhary for practical hardware guidance, on-site diagnostics, or tailored project quotations.
           </p>
 
           <div className="pt-3 flex flex-wrap items-center justify-center gap-3">
+            <button
+              onClick={handleQuoteClick}
+              className="inline-flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-semibold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-md transition-all transform hover:-translate-y-0.5 cursor-pointer min-h-[44px]"
+            >
+              <MessageSquareQuote className="w-4 h-4" />
+              <span>Request a Quote</span>
+            </button>
+
             <a
               href="#/contact"
               onClick={(e) => {
@@ -38,20 +54,10 @@ export default function ContactCtaBanner({ onContactClick }) {
                   onContactClick();
                 }
               }}
-              className="inline-flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-semibold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-md transition-all transform hover:-translate-y-0.5 cursor-pointer min-h-[44px]"
+              className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm px-5 py-3 rounded-xl backdrop-blur-sm border border-white/20 transition-all transform hover:-translate-y-0.5 cursor-pointer min-h-[44px]"
             >
-              <span>Contact & Shop Location</span>
+              <span>Contact & Workshop Map</span>
               <ArrowRight className="w-4 h-4" />
-            </a>
-
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-md transition-all transform hover:-translate-y-0.5 min-h-[44px]"
-            >
-              <MessageSquare className="w-4 h-4" />
-              <span>Chat on WhatsApp</span>
             </a>
 
             <a

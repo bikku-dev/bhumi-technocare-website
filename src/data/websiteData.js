@@ -246,6 +246,8 @@ export const ALL_SERVICES = [
   }
 ];
 
+export const SERVICES = ALL_SERVICES;
+
 export const PRODUCT_CATEGORIES = [
   {
     id: "prod-computers-laptops",

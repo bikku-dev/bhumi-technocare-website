@@ -5,11 +5,13 @@ import {
   Mail, 
   ArrowUp, 
   Navigation,
-  MessageSquare
+  MessageSquare,
+  MessageSquareQuote,
+  ShieldCheck
 } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/websiteData';
 
-export default function Footer() {
+export default function Footer({ onNavigate, onRequestQuote }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -20,13 +22,13 @@ export default function Footer() {
 
   return (
     <footer className="bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800 transition-colors duration-200">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-12 pb-6 sm:pb-8">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 pb-6 sm:pb-8">
         
         {/* Main 2-Column Responsive Layout: Brand (Left) & Contact (Right) */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 pb-8 sm:pb-10">
           
           {/* A. Brand Area */}
-          <div className="md:col-span-6 lg:col-span-7 space-y-3 max-w-xl">
+          <div className="md:col-span-6 lg:col-span-7 space-y-3.5 max-w-xl">
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center flex-shrink-0">
                 <img 
@@ -51,12 +53,21 @@ export default function Footer() {
             </div>
 
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed word-break-safe">
-              Your trusted partner for computer hardware, printing, security, and networking solutions.
+              Your trusted partner for computer hardware, printing, security, and networking solutions. Led by Computer Engineer Bharat Chaudhary.
             </p>
+
+            <div className="pt-2 flex flex-wrap items-center gap-2">
+              <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900 px-3 py-1 rounded-lg border border-slate-200/80 dark:border-slate-800 shadow-2xs">
+                Sales • Service • Rent
+              </span>
+              <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900 px-3 py-1 rounded-lg border border-slate-200/80 dark:border-slate-800 shadow-2xs">
+                Kim Char Rasta Hub
+              </span>
+            </div>
           </div>
 
           {/* B. Contact Area */}
-          <div className="md:col-span-6 lg:col-span-5 space-y-3">
+          <div className="md:col-span-6 lg:col-span-5 space-y-3.5">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
               Contact Us
             </h4>
@@ -106,8 +117,8 @@ export default function Footer() {
               </li>
             </ul>
 
-            {/* Compact Action Links: Get Directions & WhatsApp */}
-            <div className="pt-1.5 flex flex-wrap items-center gap-2">
+            {/* Compact Action Links: Get Directions & Request a Quote & WhatsApp */}
+            <div className="pt-2 flex flex-wrap items-center gap-2">
               <a
                 href={BUSINESS_INFO.directionsUrl}
                 target="_blank"
@@ -117,6 +128,14 @@ export default function Footer() {
                 <Navigation className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400" />
                 <span>Get Directions</span>
               </a>
+
+              <button
+                onClick={() => onRequestQuote && onRequestQuote({ service: 'General Enquiry & Quotation' })}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-50 hover:bg-brand-100 dark:bg-brand-950/40 dark:hover:bg-brand-950/70 text-brand-700 dark:text-brand-300 text-xs font-semibold border border-brand-200 dark:border-brand-800/60 transition-colors cursor-pointer"
+              >
+                <MessageSquareQuote className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400" />
+                <span>Request a Quote</span>
+              </button>
 
               <a
                 href={whatsappUrl}
@@ -136,7 +155,7 @@ export default function Footer() {
         {/* C. Bottom Bar */}
         <div className="pt-5 border-t border-slate-200 dark:border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-2 gap-y-1 text-center sm:text-left">
-            <span>Copyright © 2026 BHUMI TECHNOCARE.</span>
+            <span>Copyright © 2026 BHUMI TECHNOCARE. All rights reserved.</span>
             <span className="hidden sm:inline text-slate-300 dark:text-slate-700">•</span>
             <span className="text-slate-600 dark:text-slate-400 font-medium">Kim | Ankleshwar | Bharuch</span>
           </div>

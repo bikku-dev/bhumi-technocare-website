@@ -4,6 +4,8 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TrustHighlights from './components/TrustHighlights';
 import FeaturedCategories from './components/FeaturedCategories';
+import OurProcess from './components/OurProcess';
+import SolutionsShowcase from './components/SolutionsShowcase';
 import TechnicalCapabilities from './components/TechnicalCapabilities';
 import WhyChooseUs from './components/WhyChooseUs';
 import CompactAmc from './components/CompactAmc';
@@ -14,6 +16,7 @@ import AmcPage from './components/AmcPage';
 import AboutPage from './components/AboutPage';
 import ContactPage from './components/ContactPage';
 import Footer from './components/Footer';
+import WhatsAppEnquiryModal from './components/WhatsAppEnquiryModal';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
 
 const parseRoute = () => {
@@ -57,6 +60,8 @@ function AppContent() {
   useSmoothScroll();
 
   const [currentView, setCurrentView] = useState(() => parseRoute());
+  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+  const [quoteModalData, setQuoteModalData] = useState({});
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -100,10 +105,19 @@ function AppContent() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleOpenQuote = (initialData = {}) => {
+    setQuoteModalData(initialData);
+    setQuoteModalOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans selection:bg-brand-500 selection:text-white w-full max-w-full overflow-x-hidden transition-colors duration-200">
-      {/* 5-Link Navigation Header with Logo and Active Link Indicator */}
-      <Navbar currentView={currentView} onNavigate={handleNavigate} />
+      {/* 1. Navigation Header with Logo, Active Link Indicator & Request a Quote CTA */}
+      <Navbar 
+        currentView={currentView} 
+        onNavigate={handleNavigate} 
+        onRequestQuote={handleOpenQuote}
+      />
 
       {/* Main Content Router */}
       <main className="flex-1 w-full min-w-0">
@@ -118,36 +132,61 @@ function AppContent() {
             <ContactPage onBack={() => handleNavigate('#/')} />
           ) : (
             <>
-              {/* A. Premium Hero Section */}
-              <Hero onExploreProducts={() => handleNavigate('#/products')} />
+              {/* 2. Editorial Split Hero Section */}
+              <Hero 
+                onExploreProducts={() => handleNavigate('#/products')} 
+                onRequestQuote={handleOpenQuote}
+              />
 
-              {/* B. Compact Trust / Business Information Strip */}
+              {/* 3. Verified Business Highlights Strip */}
               <TrustHighlights />
 
-              {/* C. Featured Products & Solutions (6 Core Categories) */}
-              <FeaturedCategories onViewAll={() => handleNavigate('#/products')} />
+              {/* 4. Core Solutions & Offerings (Asymmetric Varied Grid) */}
+              <FeaturedCategories 
+                onViewAll={() => handleNavigate('#/products')} 
+                onRequestQuote={handleOpenQuote}
+              />
 
-              {/* D. What We Do / Relevant Repair & Installation Capabilities */}
+              {/* 5. Our 4-Step Engineering Process */}
+              <OurProcess onRequestQuote={handleOpenQuote} />
+
+              {/* 6. Industry Deployment Domains Showcase */}
+              <SolutionsShowcase onRequestQuote={handleOpenQuote} />
+
+              {/* 7. Hands-On Repair & Installation Capabilities */}
               <TechnicalCapabilities />
 
-              {/* E. Why Choose Bhumi Technocare (Verifiable Strengths) */}
-              <WhyChooseUs />
+              {/* 8. Why Choose Bhumi Technocare (Split Layout with Visiting Card) */}
+              <WhyChooseUs onRequestQuote={handleOpenQuote} />
 
-              {/* F. AMC & Maintenance Promotional Section */}
+              {/* 9. Corporate AMC & Maintenance Spotlight */}
               <CompactAmc onViewAmc={() => handleNavigate('#/amc')} />
 
-              {/* Brands Strip */}
+              {/* 10. Authentic Technology Brand Partners */}
               <BrandsStrip />
 
-              {/* G. Clear Contact & Consultation CTA Banner */}
-              <ContactCtaBanner onContactClick={() => handleNavigate('#/contact')} />
+              {/* 11. High-Contrast Enterprise CTA Banner */}
+              <ContactCtaBanner 
+                onContactClick={() => handleNavigate('#/contact')} 
+                onRequestQuote={handleOpenQuote}
+              />
             </>
           )}
         </div>
       </main>
 
-      {/* H. Professional Footer */}
-      <Footer onNavigate={handleNavigate} />
+      {/* 12. Minimal Professional Multi-Column Footer */}
+      <Footer 
+        onNavigate={handleNavigate} 
+        onRequestQuote={handleOpenQuote}
+      />
+
+      {/* Global Interactive "Request a Quote" / Service Ticket Modal */}
+      <WhatsAppEnquiryModal 
+        isOpen={quoteModalOpen} 
+        onClose={() => setQuoteModalOpen(false)} 
+        initialData={quoteModalData}
+      />
     </div>
   );
 }
